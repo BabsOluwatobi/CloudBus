@@ -1,0 +1,9 @@
+{% extends 'booking/base.html' %}
+{% block content %}
+    <h2>Book a Pass</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn class="btn btn-success">Confirm Booking</button>
+    </form>
+{% endblock %}

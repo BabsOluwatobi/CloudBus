@@ -10,7 +10,10 @@ SECRET_KEY = 'django-insecure-5+!d14u)a3m2j!ivq09&fg5!#o=cl0=j=f(ky#u%0up1x^^a7q
 DEBUG = True
 
 # We use the asterisk '*' so that ANY URL (including the Azure region-specific ones) is allowed.
-ALLOWED_HOSTS = ['cloudbus-f8b4hsfhe2b3fae5.southafricanorth-01.azurewebsites.net']
+# ALLOWED_HOSTS = ['cloudbus-f8b4hsfhe2b3fae5.southafricanorth-01.azurewebsites.net']
+import os
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "localhost").split(",")
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',

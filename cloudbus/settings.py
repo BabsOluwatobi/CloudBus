@@ -136,3 +136,12 @@ LOGOUT_REDIRECT_URL = "/"
 
 # Force Django to use HTTPS for OIDC redirects when on Azure
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# 1. Allow the session cookie to be sent over HTTPS
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+# 2. Ensure the OIDC state is stored correctly in the session
+OIDC_STATE_CONTROL = True
+
+# 3. Add this if not already there (helps with Azure's proxy)
+SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"

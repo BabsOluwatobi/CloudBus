@@ -125,7 +125,10 @@ OIDC_OP_USER_ENDPOINT = "https://graph.microsoft.com/oidc/userinfo"
 # Ensure these are still present and correct for Multitenant
 OIDC_OP_AUTHORIZATION_ENDPOINT = "https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize"
 OIDC_OP_TOKEN_ENDPOINT = "https://login.microsoftonline.com/organizations/oauth2/v2.0/token"
-OIDC_OP_JWKS_ENDPOINT = "https://login.microsoftonline.com/discovery/v2.0/keys"
+OIDC_OP_USER_ENDPOINT = "https://graph.microsoft.com/oidc/userinfo"
+
+# THE FIX: Added /common/ to the discovery path
+OIDC_OP_JWKS_ENDPOINT = "https://login.microsoftonline.com/common/discovery/v2.0/keys"
 # Match Microsoft's signing algorithm
 OIDC_RP_SIGN_ALGO = 'RS256'
 

@@ -21,6 +21,8 @@ from django.urls import path, include
 # cloudbus/urls.py
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('booking.urls')),
     path('oidc/', include('mozilla_django_oidc.urls')), 
+    path('', include('booking.urls')),
+    
 ]
+

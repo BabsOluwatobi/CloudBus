@@ -1,0 +1,114 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}
+{{ block.super }}
+<!-- Bootstrap CSS link if not in base_site -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body { background-color: #f8fafc !important; }
+    #header, .breadcrumbs { display: none !important; } /* Hide default admin bars */
+    
+    .login-container {
+        margin-top: 5rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .login-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .login-form-style div {
+        margin-bottom: 1.2rem;
+    }
+    
+    .login-form-style label {
+        font-weight: 500;
+        margin-bottom: 5px;
+        color: #475569;
+        display: block;
+    }
+    
+    .login-form-style input {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        transition: all 0.2s;
+    }
+
+    .login-form-style input:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .btn-lg {
+        padding: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+    
+    .errornote {
+        color: #dc3545;
+        background: #fff5f5;
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        list-style: none;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container login-container">
+    <div class="login-card">
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-dark">Admin Portal</h2>
+            <p class="text-muted">Secure Access for CloudBus Staff</p>
+        </div>
+
+        {% if form.errors and not form.non_field_errors %}
+        <p class="errornote">{% blocktrans count counter=form.errors.items|length %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktrans %}</p>
+        {% endif %}
+
+        {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+        <p class="errornote">{{ error }}</p>
+        {% endfor %}
+        {% endif %}
+
+        <form action="{{ app_path }}" method="post" id="login-form">
+            {% csrf_token %}
+            <div class="login-form-style">
+                <!-- Username -->
+                <div>
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                </div>
+                <!-- Password -->
+                <div>
+                    {{ form.password.label_tag }}
+                    {{ form.password }}
+                </div>
+            </div>
+
+            <div class="d-grid gap-2 mt-4">
+                <!-- Standard Admin Login -->
+                <button type="submit" class="btn btn-primary btn-lg shadow-sm">
+                    Log in as Staff
+                </button>
+                
+        </form>
+    </div>
+</div>
+{% endblock %}

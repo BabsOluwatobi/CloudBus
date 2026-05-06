@@ -130,3 +130,6 @@ OIDC_CREATE_USER = True
 # Redirects
 LOGIN_REDIRECT_URL = "/admin/"
 LOGOUT_REDIRECT_URL = "/"
+
+# Force Django to use HTTPS for OIDC redirects when on Azure
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

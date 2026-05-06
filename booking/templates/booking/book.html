@@ -1,9 +1,50 @@
 {% extends 'booking/base.html' %}
+
 {% block content %}
-    <h2>Book a Pass</h2>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn class="btn btn-success">Confirm Booking</button>
-    </form>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="fw-bold text-dark mb-4">Book a Pass</h2>
+            
+            <div class="card border-0 shadow-sm p-4" style="background: #f8fafc; border-radius: 12px;">
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                    <!-- This renders your form fields with better spacing -->
+                    <div class="mb-3 custom-form-fields">
+                        {{ form.as_p }}
+                    </div>
+                    
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg shadow-sm">
+                            Confirm Booking
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="mt-3 text-center">
+                <a href="{% url 'dashboard' %}" class="text-decoration-none small text-muted">
+                    ← Back to Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* This makes the Django default form fields look like Bootstrap fields */
+        .custom-form-fields input, 
+        .custom-form-fields select {
+            width: 100%;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 0.375rem;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+            margin-bottom: 1rem;
+        }
+    </style>
 {% endblock %}

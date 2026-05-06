@@ -100,3 +100,34 @@ AZURE_ACCOUNT_KEY = '06yQGRcMTCWw54Kj0ryDvtG8c3A9mjq4Wmb2ZcZNSjOYDsWPf/oRq5CCn8i
 AZURE_CONTAINER = 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# settings.py
+
+INSTALLED_APPS += [
+    'mozilla_django_oidc', # Add this
+]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend', # Keep default
+    'mozilla_django_oidc.auth.OIDCAuthenticationBackend', # Add this
+]
+
+# Entra ID Configuration
+OIDC_RP_CLIENT_ID = '0e83ac06-4892-44b8-aa05-915f2d1bbfe7'
+OIDC_RP_CLIENT_SECRET = '9034aef4-1ad5-445e-9149-2cff37d6dbbd'
+TENANT_ID = '9f8c1089-4ee0-4268-b27d-81b1b52a408e'
+
+# Microsoft OIDC Endpoints
+OIDC_OP_AUTHORIZATION_ENDPOINT = f"https://login.microsoftonline.com/{TENANT_ID}/oauth2/v2.0/authorize"
+OIDC_OP_TOKEN_ENDPOINT = f"https://login.microsoftonline.com/{TENANT_ID}/oauth2/v2.0/token"
+OIDC_OP_USER_ENDPOINT = "https://graph.microsoft.com/oidc/userinfo"
+OIDC_OP_JWKS_ENDPOINT = f"https://login.microsoftonline.com/{TENANT_ID}/discovery/v2.0/keys"
+
+# Auto-create Django user when they log in via Microsoft
+OIDC_CREATE_USER = True
+
+# Redirects
+LOGIN_REDIRECT_URL = "/admin/"
+LOGOUT_REDIRECT_URL = "/"

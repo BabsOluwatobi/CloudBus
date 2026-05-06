@@ -150,3 +150,7 @@ OIDC_STATE_CONTROL = True
 
 # 3. Add this if not already there (helps with Azure's proxy)
 SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"
+# Tell the OIDC library where to go after success
+OIDC_AUTHENTICATION_CALLBACK_URL = 'oidc_callback'
+LOGIN_REDIRECT_URL = '/dashboard/'
+LOGOUT_REDIRECT_URL = '/'

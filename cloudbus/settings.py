@@ -11,6 +11,9 @@ DEBUG = True
 
 # We use the asterisk '*' so that ANY URL (including the Azure region-specific ones) is allowed.
 ALLOWED_HOSTS = ['*']
+
+# ADD THIS LINE:
+CSRF_TRUSTED_ORIGINS = ['https://cloudbus-f8b4hsfhe2b3fae5.southafricanorth-01.azurewebsites.net']
 # import os
 # ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "localhost").split(",")
 

@@ -116,7 +116,7 @@ AUTHENTICATION_BACKENDS = [
 
 # Entra ID Configuration
 OIDC_RP_CLIENT_ID = '0e83ac06-4892-44b8-aa05-915f2d1bbfe7'
-OIDC_RP_CLIENT_SECRET = '9034aef4-1ad5-445e-9149-2cff37d6dbbd'
+OIDC_RP_CLIENT_SECRET = 'ewc8Q~RgtLO6lKlqTU17YSulx1WrofEAIndRQdcx'
 TENANT_ID = '9f8c1089-4ee0-4268-b27d-81b1b52a408e'
 
 # Add this missing endpoint

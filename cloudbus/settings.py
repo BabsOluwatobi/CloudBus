@@ -126,6 +126,8 @@ OIDC_OP_USER_ENDPOINT = "https://graph.microsoft.com/oidc/userinfo"
 OIDC_OP_AUTHORIZATION_ENDPOINT = "https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize"
 OIDC_OP_TOKEN_ENDPOINT = "https://login.microsoftonline.com/organizations/oauth2/v2.0/token"
 OIDC_OP_JWKS_ENDPOINT = "https://login.microsoftonline.com/discovery/v2.0/keys"
+# Match Microsoft's signing algorithm
+OIDC_RP_SIGN_ALGO = 'RS256'
 
 # Critical for "everyone" to be able to join
 OIDC_CREATE_USER = True

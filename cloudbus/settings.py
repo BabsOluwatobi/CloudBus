@@ -119,7 +119,10 @@ OIDC_RP_CLIENT_ID = '0e83ac06-4892-44b8-aa05-915f2d1bbfe7'
 OIDC_RP_CLIENT_SECRET = '9034aef4-1ad5-445e-9149-2cff37d6dbbd'
 TENANT_ID = '9f8c1089-4ee0-4268-b27d-81b1b52a408e'
 
-# Use 'organizations' to allow any Work or School Microsoft account
+# Add this missing endpoint
+OIDC_OP_USER_ENDPOINT = "https://graph.microsoft.com/oidc/userinfo"
+
+# Ensure these are still present and correct for Multitenant
 OIDC_OP_AUTHORIZATION_ENDPOINT = "https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize"
 OIDC_OP_TOKEN_ENDPOINT = "https://login.microsoftonline.com/organizations/oauth2/v2.0/token"
 OIDC_OP_JWKS_ENDPOINT = "https://login.microsoftonline.com/discovery/v2.0/keys"

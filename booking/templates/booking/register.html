@@ -1,9 +1,75 @@
+
 {% extends 'booking/base.html' %}
+
 {% block content %}
-    <h2>Register</h2>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-dark">Create Account</h2>
+            <p class="text-muted">Join the Cloud Bus network today</p>
+        </div>
+        
+        <!-- Registration Card -->
+        <div class="card border-0 shadow-sm p-4" style="border-radius: 15px;">
+            <form method="POST">
+                {% csrf_token %}
+                
+                <div class="registration-form-style">
+                    {{ form.as_p }}
+                </div>
+                
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg shadow-sm">
+                        Complete Registration
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Bottom Link -->
+        <div class="text-center mt-3">
+            <p class="small text-muted">
+                Already have an account? 
+                <a href="{% url 'login' %}" class="text-primary fw-bold text-decoration-none">Login</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Styling the auto-generated Django fields to match Bootstrap */
+    .registration-form-style p {
+        margin-bottom: 1rem;
+    }
+    
+    .registration-form-style label {
+        font-weight: 500;
+        margin-bottom: 5px;
+        color: #475569;
+        display: block;
+    }
+    
+    .registration-form-style input {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        background-color: #ffffff;
+        transition: border-color 0.2s;
+    }
+    
+    .registration-form-style input:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .helptext {
+        display: block;
+        font-size: 0.75rem;
+        color: #94a3b8;
+        margin-top: 4px;
+    }
+</style>
 {% endblock %}
